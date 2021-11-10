@@ -16,5 +16,7 @@ also, yes I know that I use bools when I should use chars in the beigining, that
 
 acellus is from a cult, yay.
 https://www.fastcompany.com/90549530/the-extremely-weird-story-of-a-remote-learning-company-thats-making-parents-livid
+
 https://apnews.com/article/virus-outbreak-archive-honolulu-hawaii-e80f41410daf2d2e6e60c8e424926fe4
+
 https://onezero.medium.com/a-major-online-learning-platform-was-created-by-a-subterranean-religious-cult-whose-leader-has-cec99e7adcaf
