@@ -4,7 +4,7 @@
 
 int main()
 {
-	char Number;
+	char Number;//can't reuse
 	int MN; //mass number
 	int AN; //atomic number
 	int Charge;
@@ -27,13 +27,13 @@ int main()
 	float POD; //percentage of d
 	float POE;
 	float total;
-	float PE; //percent error
+	float PE; //percent error, cant reuse
 	float AMU; //atomic mass unit
 	int HP = 2; //how presice
-	int YN; //yes or no
+	int YN; //yes or no, cant reuse
 	float AAM; //average atomic mass
-	int AR; //actual or relitive 1 or 0 respectivly
-	int YNRA; //yes or no for relitive or actual intenisty
+	int AR; //actual or relitive 1 or 0 respectivly, can't reuse
+	int YNRA; //yes or no for relitive or actual intenisty, can't reuse
 	int MTAMU; //amount more terms for AMU
 	float ANumber;
 	float HydrogenNumber;
@@ -77,7 +77,16 @@ int main()
 	float otA;
 	float otW;
 	float Gtotal;
+	float GTOTAL1;
 	float HMG;
+	float WSf;//can't reuse
+	float hmc;
+	float hmh;
+	float hmn;
+	float hmo;
+	float hms;
+	float ito;
+	float POTATO_SNURGLEMUMPHKIN;
 
 	//atoms number and AMU
 	int HydrogenAtomicNumber = 1;
@@ -112,6 +121,7 @@ int main()
 		std::cout << "5: percentage of an atom" << std::endl;
 		std::cout << "6: grams percentage calculator" << std::endl;
 		std::cout << "7: grams to moles and vice versa" << std::endl;
+		std::cout << "8: moles to moles" << std::endl;
 		std::cout << std::endl << "press V for basic vocab" << std::endl;
 
 		//end help
@@ -137,6 +147,8 @@ int main()
 		std::cout << std::endl << "mole of input to moles of output" << std::endl;
 		std::cout << "step 1: divide grams by the molar mass" << std::endl;
 		std::cout << "step 2: " << std::endl;
+		
+		std::cout << std::endl << "one mole of gas at STP is 22.4 litirs" << std::endl;
 
 		std::cin >> Number;
 	}
@@ -529,30 +541,33 @@ int main()
 
 		std::cout << "are you finding moles or grams" << std::endl;
 		std::cin >> MOG;
+		std::cout << "ignore prefixes like '2'h2o" << std::endl << std::endl;
 
 		//finding moles
 		if (MOG == 'm') 
 		{
-			std::cout << "How many grams do you have" << std::endl;
+			std::cout << "how many grams do you have" << std::endl;
 			std::cin >> HMG;
 			std::cout << "Input amount of hydrogens atoms" << std::endl;
-			std::cin >> hg;
+			std::cin >> hyA;
 			std::cout << "Input amount of carbons atoms" << std::endl;
-			std::cin >> cg;
+			std::cin >> caA;
 			std::cout << "Input amount of oxygens atoms" << std::endl;
-			std::cin >> og;
+			std::cin >> oxA;
 			std::cout << "Input amount of nitrogens atoms" << std::endl;
-			std::cin >> ng;
+			std::cin >> niA;
 			std::cout << "Input amount of sulphor atoms" << std::endl;
-			std::cin >> sg;
-			std::cout << "input other atom weight atoms" << std::endl;
+			std::cin >> suA;
+			std::cout << "input amount of another atom" << std::endl;
 			std::cin >> otA;
 			std::cout << "input atomic weight of the other atoms" << std::endl;
 			std::cin >> otW;
+			Gtotal = 0;
+			Gtotal = HMG / ((hyA * HydrogenAMU) + (caA * CarbonAMU) + (oxA * OxygenAMU) + (niA * NitrogenAMU) + (suA * sulphorAMU) + (otA * otW));
 
-			Gtotal = HMG / ((hg * HydrogenAMU) + (cg * CarbonAMU) + (og * OxygenAMU) + (ng * NitrogenAMU) + (sg * sulphorAMU) + (otA * otW));
+			std::cout << "You have " << Gtotal << " moles" << std::endl;
 
-			std::cout << "you have " << Gtotal << " moles" << std::endl;
+			std::cin >> Number;
 		}
 		//finding grams
 		if (MOG == 'g')
@@ -577,10 +592,64 @@ int main()
 			Gtotal = (hyA * HydrogenAMU * HMM) + (caA * CarbonAMU * HMM) + (oxA * OxygenAMU * HMM) + (niA * NitrogenAMU * HMM) + (suA * sulphorAMU * HMM) + (otA * otW * HMM);
 
 			std::cout << "you have " << Gtotal << " Grams" << std::endl;
+
+			std::cin >> Number;
 		}
+	}
+	//atom
+	if (Number == 8) 
+	{
+
+		std::cout << "How many grams do you have" << std::endl;
+		std::cin >> HMG;
+		std::cout << "Input amount of hydrogens atoms" << std::endl;
+		std::cin >> hg;
+		std::cout << "Input amount of carbons atoms" << std::endl;
+		std::cin >> cg;
+		std::cout << "Input amount of oxygens atoms" << std::endl;
+		std::cin >> og;
+		std::cout << "Input amount of nitrogens atoms" << std::endl;
+		std::cin >> ng;
+		std::cout << "Input amount of sulphor atoms" << std::endl;
+		std::cin >> sg;
+		std::cout << "input other atom weight atoms" << std::endl;
+		std::cin >> otA;
+		std::cout << "input atomic weight of the other atoms" << std::endl;
+		std::cin >> otW;
 
 
-		std::cin >> ext;
+		Gtotal = HMG / ((hg * HydrogenAMU) + (cg * CarbonAMU) + (og * OxygenAMU) + (ng * NitrogenAMU) + (sg * sulphorAMU) + (otA * otW));
+
+		std::cout << "you have " << Gtotal << " moles\n" << std::endl;
+
+		std::cout << "what is the conversion from the input compound to the output compound" << std::endl;
+		std::cin >> ito;
+
+		//makes sure I dont make any mi-snakes
+		hg = 0; cg = 0; og = 0; ng = 0; sg = 0; otA = 0; otW = 0;
+		//weight of teh output compound
+		std::cout << "input the atoms for the output compound" << std::endl << std::endl;
+		std::cout << "Input amount of hydrogens atoms" << std::endl;
+		std::cin >> hg;
+		std::cout << "Input amount of carbons atoms" << std::endl;
+		std::cin >> cg;
+		std::cout << "Input amount of oxygens atoms" << std::endl;
+		std::cin >> og;
+		std::cout << "Input amount of nitrogens atoms" << std::endl;
+		std::cin >> ng;
+		std::cout << "Input amount of sulphor atoms" << std::endl;
+		std::cin >> sg;
+		std::cout << "input the amount of atoms of a different atom" << std::endl;
+		std::cin >> otA;
+		std::cout << "input atomic weight of the other atoms" << std::endl;
+		std::cin >> otW;
+
+		POTATO_SNURGLEMUMPHKIN = (hg * HydrogenAMU) + (cg * CarbonAMU) + (og * OxygenAMU) + (ng * NitrogenAMU) + (sg * sulphorAMU) + (otA * otW);
+		GTOTAL1 = POTATO_SNURGLEMUMPHKIN * Gtotal * ito;
+
+		std::cout << "you get " << GTOTAL1 << " grams" << std::endl;
+
+		std::cin >> Number;
 	}
 	
 	//if they input something bad
