@@ -6,6 +6,7 @@ I will make some c++ code to do it all for me"
 
 YES, I know my code is a mess and I want to make it better but I don't know how to use arrays
 also, yes I know that I use bools when I should use chars in the beigining, that is because I forgot how to use chars, so yeah
+also, yes it it not even close to being any sembelence of doneness
 
 
 
